@@ -1,5 +1,7 @@
 provider "aws" {
   region = "ap-south-1"
+  access_key = "*****"
+  secret_key =  "*****"
 }
 
 resource "aws_security_group" "allow_all_traffic" {
@@ -53,8 +55,7 @@ resource "aws_autoscaling_group" "autoscaling_group" {
   desired_capacity     = 2
   max_size             = 2
   min_size             = 2
-  vpc_zone_identifier  = ["subnet-05ef57def0be54b6b"]
-
+  vpc_zone_identifier  = ["subnet-0cbeda59be5470c90"]
   launch_template {
     id      = aws_launch_template.launch_template.id
     version = "$Latest"
